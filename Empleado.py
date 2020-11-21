@@ -1,4 +1,5 @@
-
+import getpass
+from ConectorPostgres import *
 
 class Empleado:
 
@@ -33,4 +34,11 @@ class Empleado:
     def setCedula(self, cedula : str):
         self.__cedula = cedula
   
+    def ejecutaConsulta(self):
+        return str("INSERT INTO empresa.empleado (nombre,apellido,sueldo,cedula,usuario) " +
+                    "VALUES ('" + self.__nombre + "','" + self.__apellido +
+                    "'," + str(self.__sueldo) + "," + str(self.__cedula) + ",'" + getpass.getuser() + "');")
 
+    def agregarEmpleado(self):
+        c = ConectorPostgres()
+        c.ejecutaConsulta(self.ejecutaConsulta())
