@@ -28,7 +28,7 @@ class Empleado:
     def setApellido(self, apellido : str):
         self.__apellido = apellido        
 
-    def setSueldo(self, sueldo : str):
+    def setSueldo(self, sueldo : float):
         self.__sueldo = sueldo    
 
     def setCedula(self, cedula : str):
